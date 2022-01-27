@@ -1,10 +1,12 @@
 import graphene
 
-class Query(graphene.ObjectType):
+import gql
+
+class Query(gql.WISH_QUERY,graphene.ObjectType):
     pass
 
 
-class Mutation(graphene.ObjectType):
+class Mutation(gql.Mutation,graphene.ObjectType):
     pass
 
 

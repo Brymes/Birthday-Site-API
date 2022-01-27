@@ -23,5 +23,5 @@ class AddWish(graphene.Mutation):
 
         wish.save()
 
-        return cls(submit_response="True")
+        return cls(add_wish_resp="True")
 

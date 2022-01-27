@@ -1,0 +1,15 @@
+.DS_Store
+.mypy_cache
+__pycache__
+# migrations
+.vscode/settings.json
+refer.txt
+
+queries.txt
+
+/staticfiles
+/media
+# **/migrations
+mydatabase
+db.sqlite3
+testDB.sqlite3

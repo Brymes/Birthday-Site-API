@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-4zj&p!6i&t@d(z8o)7$*kr=#6181a*0@8$0kt$g(i!^s6_rshl
 DEBUG = True
 
 ALLOWED_HOSTS = '*'
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition
@@ -48,7 +49,9 @@ GRAPHENE = {
     'SCHEMA': 'config.schema.schema',
 }
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,9 +125,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

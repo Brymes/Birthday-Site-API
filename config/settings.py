@@ -46,9 +46,6 @@ INSTALLED_APPS = [
 
 GRAPHENE = {
     'SCHEMA': 'config.schema.schema',
-    'MIDDLEWARE': [
-        'graphql_jwt.middleware.JSONWebTokenMiddleware'
-    ]
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

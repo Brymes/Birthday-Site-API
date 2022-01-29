@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get("EMAIL_HOST")
-EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get("MAIL_USERNAME")
 EMAIL_HOST_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
@@ -93,16 +93,17 @@ DEFAULT_FROM_EMAIL = os.environ.get("MAIL_USERNAME")
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {}
 DATABASES['default'] = dj_database_url.parse(
     os.environ.get('DATABASE_URL'), conn_max_age=20)
-""" DATABASES = {
+""" 
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'testDB.sqlite3'),
     }
-} """
+} 
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

@@ -10,8 +10,9 @@ from django.core.mail import send_mail
 def send_tribute_to_mail(sender, instance, created, **kwargs):
     if created:
         print(sender)
+        print("alknfasnalk")
 
         mess = f"{instance.message}"
         subject = f"Birthday Tribute from {instance.name}"
-        send_mail(message=mess, from_email="", recepient_list=[
+        send_mail(message=mess, recipient_list=[
                   "samuel.jennifer.olowo@gmail.com", "saolowo@yahoo.com"], subject=subject, fail_silently=False)

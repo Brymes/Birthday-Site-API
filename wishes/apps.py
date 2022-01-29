@@ -5,4 +5,4 @@ class WishesConfig(AppConfig):
     name = 'wishes'
 
     def ready(self):
-        from . import signals
+        import wishes.signals

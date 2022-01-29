@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-4zj&p!6i&t@d(z8o)7$*kr=#6181a*0@8$0kt$g(i!^s6_rshl
 DEBUG = True
 
 ALLOWED_HOSTS = '*'
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -51,8 +51,8 @@ GRAPHENE = {
     'SCHEMA': 'config.schema.schema',
 }
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

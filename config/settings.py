@@ -82,13 +82,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get("MAIL_USERNAME")
+EMAIL_HOST_PASSWORD = os.environ.get("MAIL_PASSWORD")
+
+DEFAULT_FROM_EMAIL = os.environ.get("MAIL_USERNAME")
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {}
 DATABASES['default'] = dj_database_url.parse(
-    "postgres://xuhwpekedbavem:053cea31fede013e79932329b95f54302fd08700fafb4ca1c31ecb7ef34ec174@ec2-54-156-60-12.compute-1.amazonaws.com:5432/daktedhv6beu0h", conn_max_age=20) 
+    os.environ.get('DATABASE_URL'), conn_max_age=20)
 """ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
